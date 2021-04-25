@@ -3,6 +3,9 @@ import CNavBar from "../components/cNavBar";
 
 class Api extends Component {
   state = {};
+  componentDidMount() {
+    document.title = "Colorizer : API & Tools";
+  }
   render() {
     return (
       <div>

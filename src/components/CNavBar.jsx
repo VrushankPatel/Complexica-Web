@@ -5,10 +5,13 @@ import logo from "../assets/imgs/logo.png";
 class CNavBar extends Component {
   state = { page: this.props.page };
 
-  // changeNavButtons = () => {
-  //   this.setState({ isHome: !this.state.isHome });
-  //   alert(JSON.stringify(this.state));
-  // };
+  getActiveLabelBold = (activeLabel) => {
+    return `font-weight-${this.state.page === activeLabel ? "bold" : "normal"}`;
+  };
+
+  changeActiveLabelColor = (page) => {
+    this.setState({ page: page });
+  };
 
   render() {
     return (
@@ -29,26 +32,23 @@ class CNavBar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link
-                className={`font-weight-${
-                  this.state.page === "home" ? "bold" : "normal"
-                }`}
-                href="/home"
+                onClick={() => this.changeActiveLabelColor("home")}
+                className={this.getActiveLabelBold("home")}
+                href="/"
               >
                 Home
               </Nav.Link>
               <Nav.Link
+                onClick={() => this.changeActiveLabelColor("api")}
                 href="/api"
-                className={`font-weight-${
-                  this.state.page === "api" ? "bold" : "normal"
-                }`}
+                className={this.getActiveLabelBold("api")}
               >
                 Tools & API
               </Nav.Link>
+
               <Nav.Link
                 href="/about"
-                className={`font-weight-${
-                  this.state.page === "about" ? "bold" : "normal"
-                }`}
+                className={this.getActiveLabelBold("about")}
               >
                 About
               </Nav.Link>

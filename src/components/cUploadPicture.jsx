@@ -16,10 +16,10 @@ class CUploadPicture extends Component {
     return (
       <div className="container">
         <div className="row justify-content-center">
-          <div style={uploadPictureBoxStyle} className="col-lg-6">
+          <div style={uploadPictureBoxStyle} className="col-lg-12">
             <Button
               style={{
-                padding: "10px",
+                padding: "15px",
               }}
             >
               Upload Picture
