@@ -1,9 +1,9 @@
 import { Component } from "react";
-import CNavBar from "../components/CNavBar";
+import CNavBar from "../components/cNavBar";
 class WelcomeView extends Component {
   state = {};
   render() {
-    return <CNavBar isHome={false} />;
+    return <CNavBar page="about" />;
   }
 }
 

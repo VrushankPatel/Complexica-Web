@@ -1,5 +1,6 @@
-import WelcomeView from "./views/Welcome";
-import AboutView from "./views/About";
+import WelcomeView from "./views/welcome";
+import AboutView from "./views/about";
+import Api from "./views/apiView";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,11 @@ function App() {
         <Switch>
           <Route path="/about">
             <AboutView />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path="/api">
+            <Api />
           </Route>
         </Switch>
       </div>
