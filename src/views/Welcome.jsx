@@ -3,7 +3,7 @@ import CNavBar from "../components/cNavBar";
 
 import Body from "../components/body";
 
-class AboutView extends Component {
+class WelcomeView extends Component {
   componentDidMount() {
     document.title = "Colorizer : Home";
   }
@@ -17,4 +17,4 @@ class AboutView extends Component {
   }
 }
 
-export default AboutView;
+export default WelcomeView;
