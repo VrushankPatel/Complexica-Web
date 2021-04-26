@@ -1,5 +1,5 @@
 import { Component } from "react";
-import CNavBar from "../components/cNavBar";
+import CNavBar from "../components/cNavBarX";
 
 class AboutView extends Component {
   state = {};
