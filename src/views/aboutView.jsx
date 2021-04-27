@@ -1,10 +1,13 @@
 import { Component } from "react";
-import CNavBar from "../components/cNavBarX";
+
 
 class AboutView extends Component {
   state = {};
+  componentDidMount() {
+    document.title = "Colorizer : About";
+  }
   render() {
-    return <CNavBar page="about" />;
+    return "about";
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import logo from "../assets/imgs/logo.png";
+import util from "../utilities/Util";
 
 class CNavBar extends Component {
   state = { page: this.props.page };
@@ -9,9 +10,9 @@ class CNavBar extends Component {
     return `font-weight-${this.state.page === activeLabel ? "bold" : "normal"}`;
   };
 
-  changeActiveLabelColor = (page) => {
-    this.setState({ page: page });
-  };
+  componentDidMount() {
+    this.setState({ page: util.getUrlEndPoint() });
+  }
 
   render() {
     return (
@@ -32,35 +33,25 @@ class CNavBar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link
-                onClick={() => this.changeActiveLabelColor("home")}
-                className={this.getActiveLabelBold("home")}
+                className={this.getActiveLabelBold("Home")}
                 href="/"
               >
                 Home
               </Nav.Link>
               <Nav.Link
-                onClick={() => this.changeActiveLabelColor("api")}
                 href="/api"
-                className={this.getActiveLabelBold("api")}
+                className={this.getActiveLabelBold("Api")}
               >
                 Tools & API
               </Nav.Link>
 
               <Nav.Link
                 href="/about"
-                className={this.getActiveLabelBold("about")}
+                className={this.getActiveLabelBold("About")}
               >
                 About
               </Nav.Link>
             </Nav>
-            {/* <Form inline>
-              <FormControl
-                type="text"
-                placeholder="Search"
-                className="mr-sm-2"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form> */}
           </Navbar.Collapse>
         </Navbar>
       </div>

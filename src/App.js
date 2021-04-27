@@ -1,12 +1,21 @@
-import WelcomeView from "./views/welcomeView";
-import AboutView from "./views/aboutView";
-import Api from "./views/apiView";
+import WelcomeView from "./views/WelcomeView";
+import AboutView from "./views/AboutView";
+import Api from "./views/ApiView";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import CNavBar from "./components/NavBarX";
+import { React, useEffect } from 'react';
+import util from "./utilities/Util";
 
 function App() {
+  useEffect(() => {
+    document.title = `Colorizer : ${util.getUrlEndPoint()}`
+  })
+
   return (
     <Router>
       <div className="App">
+
+        <CNavBar page="home" />
         <Route exact path="/">
           <WelcomeView />
         </Route>

@@ -1,22 +1,23 @@
 import { Component } from "react";
-import CUploadPicture from "./cUploadPicture";
+import CUploadPicture from "./UploadPicture";
 import animGif from "../assets/gifs/colorized.gif";
+import { Container, Row, Col, Image } from "react-bootstrap";
+
 class Body extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div
-            className="col-lg-8"
+      <Container>
+        <Row className="row justify-content-center">
+          <Col
+            lg={8}
             style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              padding: "30px 0px 100px 0px",
+              padding: "30px 0px 100px 0px"
             }}
           >
-            <div
-              className="col"
+            <Col
               style={{
                 textAlign: "left",
                 fontFamily: "Arial",
@@ -33,15 +34,13 @@ class Body extends Component {
                 Colorize your b/w photo
               </h2>
               <h2>100% Automatic and Free</h2>
-              <img
-                src={animGif}
-                alt="Colorize your black and white images."
-                width="700"
-              />
-            </div>
-          </div>
-          <div
-            className="col-lg-4 pl-lg-5"
+              <Image src={animGif}
+                className="w-5" fluid />
+            </Col>
+          </Col>
+          <Col
+            lg={4}
+            className="pl-lg-5"
             style={{
               display: "flex",
               justifyContent: "center",
@@ -49,9 +48,9 @@ class Body extends Component {
             }}
           >
             <CUploadPicture />
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

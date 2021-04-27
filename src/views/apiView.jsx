@@ -1,5 +1,4 @@
 import { Component } from "react";
-import CNavBar from "../components/cNavBarX";
 
 class Api extends Component {
   state = {};
@@ -8,10 +7,9 @@ class Api extends Component {
   }
   render() {
     return (
-      <div>
-        <CNavBar page="api" />
-        api and tools
-      </div>
+
+      "api and tools"
+
     );
   }
 }

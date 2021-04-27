@@ -1,7 +1,6 @@
 import { Component } from "react";
-import CNavBar from "../components/cNavBarX";
 
-import Body from "../components/body";
+import Body from "../components/CBody";
 
 class WelcomeView extends Component {
   componentDidMount() {
@@ -10,7 +9,6 @@ class WelcomeView extends Component {
   render() {
     return (
       <div>
-        <CNavBar page="home" />
         <Body />
       </div>
     );
