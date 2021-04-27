@@ -17,7 +17,7 @@ class CNavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="md">
           <img src={logo} width="80" height="50" alt="" />
           <Navbar.Brand
             href="/home"

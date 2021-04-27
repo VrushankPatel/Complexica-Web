@@ -9,14 +9,14 @@ class CUploadPicture extends Component {
       justifyContent: "center",
       alignItems: "center",
       padding: "100px 0px 100px 0px",
-      borderRadius: "5px",
+      borderRadius: "15px",
       boxShadow:
-        "0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+        "0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.20)",
     };
     return (
       <div className="container">
         <div className="row justify-content-center">
-          <div style={uploadPictureBoxStyle} className="col-lg-12">
+          <div style={uploadPictureBoxStyle} className="col-lg-10">
             <Button
               style={{
                 padding: "15px",
@@ -26,7 +26,7 @@ class CUploadPicture extends Component {
             </Button>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }

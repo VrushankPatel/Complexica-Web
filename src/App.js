@@ -14,7 +14,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-
         <CNavBar page="home" />
         <Route exact path="/">
           <WelcomeView />

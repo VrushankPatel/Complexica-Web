@@ -14,7 +14,6 @@ class Body extends Component {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              padding: "30px 0px 100px 0px"
             }}
           >
             <Col
@@ -34,13 +33,13 @@ class Body extends Component {
                 Colorize your b/w photo
               </h2>
               <h2>100% Automatic and Free</h2>
-              <Image src={animGif}
+              <Image src={animGif} width={800}
                 className="w-5" fluid />
             </Col>
           </Col>
           <Col
             lg={4}
-            className="pl-lg-5"
+            className="pt-5"
             style={{
               display: "flex",
               justifyContent: "center",
@@ -50,7 +49,7 @@ class Body extends Component {
             <CUploadPicture />
           </Col>
         </Row>
-      </Container>
+      </Container >
     );
   }
 }
