@@ -7,7 +7,7 @@ class Body extends Component {
   render() {
     return (
       <Container>
-        <Row className="row justify-content-center">
+        <Row className="justify-content-center">
           <Col
             lg={8}
             style={{
@@ -34,6 +34,14 @@ class Body extends Component {
               </h2>
               <h2>100% Automatic and Free</h2>
               <Image src={animGif} width={800}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "30px",
+                  boxShadow:
+                    "0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.20)",
+                }}
                 className="w-5" fluid />
             </Col>
           </Col>
