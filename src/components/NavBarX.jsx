@@ -27,7 +27,7 @@ class CNavBar extends Component {
               color: "#2b2b2a",
             }}
           >
-            Colorizer
+            Complexica
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

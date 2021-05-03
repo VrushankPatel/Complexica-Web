@@ -8,7 +8,7 @@ import util from "./utilities/Util";
 
 function App() {
   useEffect(() => {
-    document.title = `Colorizer : ${util.getUrlEndPoint()}`
+    document.title = `Complexica : ${util.getUrlEndPoint()}`
   })
 
   return (
