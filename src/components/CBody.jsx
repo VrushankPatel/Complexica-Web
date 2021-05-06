@@ -2,11 +2,37 @@ import { Component } from "react";
 import CUploadPicture from "./UploadPicture";
 import animGif from "../assets/gifs/colorized.gif";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import Toast from "react-bootstrap/Toast";
 
 class Body extends Component {
+  state = { showToast: false }
   render() {
+    const showFormatError = () => {
+      this.setState({ showToast: true });
+    }
+    const hideFormatError = () => {
+      this.setState({ showToast: false });
+    }
     return (
       <Container>
+        <Toast
+          onClose={hideFormatError}
+          show={this.state.showToast}
+          delay={3000}
+          style={{
+            position: 'absolute',
+            top: 20,
+            right: 20,
+          }}
+          autohide
+        >
+          <Toast.Header>
+            <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+            <strong className="mr-auto text-danger">Invalid Picture Format</strong>
+            <small></small>
+          </Toast.Header>
+          <Toast.Body>Only jpg, jpeg and png formats are supported.</Toast.Body>
+        </Toast>
         <Row className="justify-content-center">
           <Col
             lg={8}
@@ -54,7 +80,7 @@ class Body extends Component {
               alignItems: "center",
             }}
           >
-            <CUploadPicture />
+            <CUploadPicture showToast={showFormatError} />
           </Col>
         </Row>
       </Container >
