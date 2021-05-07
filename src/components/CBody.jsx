@@ -7,6 +7,9 @@ import Toast from "react-bootstrap/Toast";
 class Body extends Component {
   state = { showToast: false }
   render() {
+    const updateImage = (encodedBase64) => {
+      this.imageElement.src = `data:image/png;base64, ${encodedBase64}`
+    }
     const showFormatError = () => {
       this.setState({ showToast: true });
     }
@@ -59,12 +62,14 @@ class Body extends Component {
                 Colorize your b/w photo
               </h2>
               <h2>100% Automatic and Free</h2>
-              <Image src={animGif} width={800}
+              <Image
+                ref={imageElement => this.imageElement = imageElement}
+                src={animGif} width={800}
                 style={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  borderRadius: "30px",
+                  borderRadius: "20px",
                   boxShadow:
                     "0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.20)",
                 }}
@@ -80,7 +85,7 @@ class Body extends Component {
               alignItems: "center",
             }}
           >
-            <CUploadPicture showToast={showFormatError} />
+            <CUploadPicture showToast={showFormatError} updateImage={updateImage} />
           </Col>
         </Row>
       </Container >

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, Form, Button, ProgressBar } from "react-bootstrap";
 import Util from "../utilities/Util"
+import uploadImageRequest from "../utilities/uploadImageRequest"
 import "../App.css";
 
 class CUploadPicture extends Component {
@@ -8,6 +9,8 @@ class CUploadPicture extends Component {
 
   render() {
     const imageExtensions = ["jpg", "png", "jpeg"];
+    const showToast = this.props.showToast;
+    const updateImage = this.props.updateImage;
     const uploadPictureBoxStyle = {
       display: "flex",
       justifyContent: "center",
@@ -21,17 +24,26 @@ class CUploadPicture extends Component {
       display: this.state.showProgressMessage ? "initial" : "none"
     }
 
+    const startProgressSim = () => {
+      this.setState({ showProgressBar: true, showProgressMessage: true, btnDsbl: true })
+    }
+
+    const stopProgressSim = () => {
+      this.setState({ showProgressBar: false, showProgressMessage: false, btnDsbl: false })
+    }
+
     const handleUpload = (e) => {
       const files = this.fileElement.files;
       if (files.length === 0) {
         return;
       }
-      let fileName = files.item(0).name;
+      const fileName = files.item(0).name;
       if (!Util.isValidExtension(fileName, imageExtensions)) {
-        this.props.showToast();
-        return
+        showToast();
+        return;
       }
-      this.setState({ showProgressBar: true, showProgressMessage: true, btnDsbl: true })
+      startProgressSim()
+      uploadImageRequest(files.item(0), updateImage, stopProgressSim);
     }
 
     return (
