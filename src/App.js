@@ -17,30 +17,21 @@ function App() {
     document.title = `Complexica : ${util.getUrlEndPoint()}`
   })
 
-  return ( <
-    Router >
-    <
-    div className = "App" >
-    <
-    CNavBar page = "home" / >
-    <
-    Route exact path = "/" >
-    <
-    WelcomeView / >
-    <
-    /Route> <
-    Route path = "/about" >
-    <
-    AboutView / >
-    <
-    /Route> <
-    Route path = "/api" >
-    <
-    Api / >
-    <
-    /Route> <
-    /div> <
-    /Router>
+  return (
+    < Router >
+      <div className="App" >
+        <CNavBar page="home" />
+        <Route exact path="/" >
+          <WelcomeView />
+        </Route>
+        <Route path="/about" >
+          <AboutView />
+        </Route>
+        <Route path="/api" >
+          <Api />
+        </Route>
+      </div>
+    </Router>
   );
 }
 

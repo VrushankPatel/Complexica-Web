@@ -1,4 +1,5 @@
 import { Component } from "react";
+import ApiBody from "../components/ApiBody";
 
 class Api extends Component {
   state = {};
@@ -8,7 +9,7 @@ class Api extends Component {
   render() {
     return (
 
-      "api and tools"
+      <ApiBody />
 
     );
   }
