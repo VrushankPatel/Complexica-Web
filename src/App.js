@@ -1,6 +1,8 @@
 import WelcomeView from "./views/WelcomeView";
 import AboutView from "./views/AboutView";
 import Api from "./views/ApiView";
+import CFooter from "./components/CFooter";
+
 import {
   BrowserRouter as Router,
   Route
@@ -30,6 +32,7 @@ function App() {
         <Route path="/api" >
           <Api />
         </Route>
+        <CFooter />
       </div>
     </Router>
   );

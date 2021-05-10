@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import About from "../components/About";
 
 class AboutView extends Component {
   state = {};
@@ -7,7 +7,7 @@ class AboutView extends Component {
     document.title = "Colorizer : About";
   }
   render() {
-    return "about";
+    return <About />;
   }
 }
 
