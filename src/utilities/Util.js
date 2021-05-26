@@ -1,5 +1,6 @@
 const URL1 = "https://complexica.herokuapp.com/complexica/upload_image";
 const URL2 = "https://complexica2.herokuapp.com/complexica/upload_image";
+const listOfAcceptedExtensions = ["jpg", "png", "jpeg"];
 const util = {
     capitalizeFirstChar: str => str.charAt(0).toUpperCase() + str.substring(1),
     getUrlEndPoint: () => {
@@ -7,7 +8,7 @@ const util = {
         url = url ? url : "home"; // home page has no url patern after domain name, so..        
         return util.capitalizeFirstChar(url);
     },
-    isValidExtension: (fileName, listOfAcceptedExtensions) => {
+    isValidExtension: (fileName) => {
         let fileNameChunks = fileName.split(".");
         const extension = fileNameChunks[fileNameChunks.length - 1];
         return listOfAcceptedExtensions.includes(extension)

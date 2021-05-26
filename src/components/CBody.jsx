@@ -7,8 +7,18 @@ import Toast from "react-bootstrap/Toast";
 class Body extends Component {
   state = { showToast: false }
   render() {
+    const downloadBase64File = (contentType, base64Data, fileName) => {
+      const linkSource = `data:${contentType};base64,${base64Data}`;
+      const downloadLink = document.createElement("a");
+      downloadLink.href = linkSource;
+      downloadLink.download = fileName;
+      downloadLink.click();
+    }
     const updateImage = (encodedBase64) => {
-      this.imageElement.src = `data:image/png;base64, ${encodedBase64}`
+      let fileName = localStorage.getItem("complFileName");
+      fileName = fileName ? fileName : "compconv.png";
+      downloadBase64File('png', encodedBase64, fileName);
+      this.imageElement.src = `data:image/png;base64, ${encodedBase64}`;
     }
     const showFormatError = () => {
       this.setState({ showToast: true });

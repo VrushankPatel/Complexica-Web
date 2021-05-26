@@ -8,7 +8,6 @@ class CUploadPicture extends Component {
   state = { iconColor: "lightGrey", showProgressBar: false, showProgressMessage: false, btnDsbl: false };
 
   render() {
-    const imageExtensions = ["jpg", "png", "jpeg"];
     const showToast = this.props.showToast;
     const updateImage = this.props.updateImage;
     const uploadPictureBoxStyle = {
@@ -38,10 +37,11 @@ class CUploadPicture extends Component {
         return;
       }
       const fileName = files.item(0).name;
-      if (!Util.isValidExtension(fileName, imageExtensions)) {
+      if (!Util.isValidExtension(fileName)) {
         showToast();
         return;
       }
+      localStorage.setItem("complFileName", fileName);
       startProgressSim()
       uploadImageRequest(files.item(0), updateImage, stopProgressSim);
     }

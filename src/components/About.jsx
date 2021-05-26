@@ -8,16 +8,12 @@ class Body extends Component {
       fontWeight: "90",
       color: "#363634",
       fontFamily: "Exo",
-      // paddingTop: "220px",
-      // paddingLeft: "50px",
     };
     const subTxtStyle = {
       fontSize: "xx-large",
       fontWeight: "90",
       color: "#363634",
       fontFamily: "Exo",
-      // paddingTop: "220px",
-      // paddingLeft: "50px",
     };
     const colStyle = {
       display: "flex",
