@@ -20,7 +20,7 @@ class CNavBar extends Component {
         <Navbar bg="light" expand="md">
           <img src={logo} width="80" height="50" alt="" />
           <Navbar.Brand
-            href="/home"
+            href="/"
             style={{
               fontFamily: "Exo",
               fontSize: "XX-Large",

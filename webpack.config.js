@@ -1,3 +1,14 @@
-new HTMLWebpackPlugin({
-  favicon: "src/assets/imgs/favicon.ico",
-});
+module.exports = {
+  entry: './main.js',
+  output: { path: __dirname, filename: 'bundle.js' },
+  module: {
+    loaders: [
+      ...
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      },
+      ...
+    ]
+  },
+};
