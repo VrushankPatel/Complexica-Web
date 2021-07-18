@@ -11,6 +11,7 @@ class CNavBar extends Component {
   };
 
   componentDidMount() {
+    util.awakeAPIGatewayAndBackEndHeroku();
     this.setState({ page: util.getUrlEndPoint() });
   }
 

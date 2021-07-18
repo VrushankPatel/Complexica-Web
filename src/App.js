@@ -18,7 +18,6 @@ function App() {
   useEffect(() => {
     document.title = `Complexica : ${util.getUrlEndPoint()}`
   })
-
   return (
     < Router >
       <div className="App" >
