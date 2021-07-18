@@ -5,7 +5,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import Toast from "react-bootstrap/Toast";
 
 class Body extends Component {
-  state = { showToast: false }
+  state = { showToast: false, showDurationToast: false, serverTime: 0, clientTime: 0 }
   render() {
     const downloadBase64File = (contentType, base64Data, fileName) => {
       const linkSource = `data:${contentType};base64,${base64Data}`;
@@ -20,12 +20,12 @@ class Body extends Component {
       downloadBase64File('png', encodedBase64, fileName);
       this.imageElement.src = `data:image/png;base64, ${encodedBase64}`;
     }
-    const showFormatError = () => {
-      this.setState({ showToast: true });
-    }
-    const hideFormatError = () => {
-      this.setState({ showToast: false });
-    }
+    const showFormatError = () => this.setState({ showToast: true });
+    const hideFormatError = () => this.setState({ showToast: false });
+    const showDuration = (serverTime, clientTime) => {
+      this.setState({ serverTime: serverTime, clientTime: clientTime, showDurationToast: true });
+    };
+    const hideDuration = () => this.setState({ showDurationToast: false });
     return (
       <Container>
         <Toast
@@ -45,6 +45,27 @@ class Body extends Component {
             <small></small>
           </Toast.Header>
           <Toast.Body>Only jpg, jpeg and png formats are supported.</Toast.Body>
+        </Toast>
+        <Toast
+          onClose={hideDuration}
+          show={this.state.showDurationToast}
+          delay={5000}
+          style={{
+            position: 'absolute',
+            top: 20,
+            right: 20,
+          }}
+          autohide
+        >
+          <Toast.Header>
+            <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+            <strong className="mr-auto text-info">Time Duration</strong>
+            <small></small>
+          </Toast.Header>
+          <Toast.Body>
+            <p style={{ float: "left" }}>Response time : {this.state.clientTime} Second(s)</p><br />
+            <p style={{ float: "left" }}>Image converted : {this.state.serverTime} Second(s)</p>
+          </Toast.Body>
         </Toast>
         <Row className="justify-content-center">
           <Col
@@ -95,7 +116,7 @@ class Body extends Component {
               alignItems: "center",
             }}
           >
-            <CUploadPicture showToast={showFormatError} updateImage={updateImage} />
+            <CUploadPicture showToast={showFormatError} showDurationToast={showDuration} updateImage={updateImage} />
           </Col>
         </Row>
       </Container >

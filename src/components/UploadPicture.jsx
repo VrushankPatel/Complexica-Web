@@ -9,6 +9,7 @@ class CUploadPicture extends Component {
 
   render() {
     const showToast = this.props.showToast;
+    const showDurationToast = this.props.showDurationToast;
     const updateImage = this.props.updateImage;
     const uploadPictureBoxStyle = {
       display: "flex",
@@ -32,6 +33,7 @@ class CUploadPicture extends Component {
     }
 
     const handleUpload = (e) => {
+      const startTime = new Date();
       const files = this.fileElement.files;
       if (files.length === 0) {
         return;
@@ -43,7 +45,7 @@ class CUploadPicture extends Component {
       }
       localStorage.setItem("complFileName", fileName);
       startProgressSim()
-      uploadImageRequest(files.item(0), updateImage, stopProgressSim);
+      uploadImageRequest(files.item(0), updateImage, stopProgressSim, startTime, showDurationToast);
     }
 
     return (

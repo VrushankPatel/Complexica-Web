@@ -1,9 +1,10 @@
 import Util from "../utilities/Util"
 var axios = require('axios');
 
-const uploadImageRequest = (img, updateImage, stopProgressSim) => {
+const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDurationToast) => {
     var FormData = require('form-data');
     var data = new FormData();
+    const beginTime = startTime;
     data.append('image', img);
 
     var config = {
@@ -14,11 +15,16 @@ const uploadImageRequest = (img, updateImage, stopProgressSim) => {
 
     axios(config)
         .then(function (response) {
-            updateImage(response.data);
+            updateImage(response.data.image);
             stopProgressSim();
+            const timeTaken = Math.ceil((new Date() - beginTime) / 1000);
+            if (response.data.timeTaken > -1) {
+                showDurationToast(response.data.timeTaken, timeTaken);
+            }
         })
         .catch(function (error) {
             alert("Unable to convert image, please try again later..");
+            stopProgressSim();
         });
 }
 
