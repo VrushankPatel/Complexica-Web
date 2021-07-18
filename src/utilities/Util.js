@@ -1,13 +1,13 @@
 import axios from "axios";
-const URL1 = "https://complexica.herokuapp.com/complexica/upload_image";
-const URL2 = "https://complexica2.herokuapp.com/complexica/upload_image";
+const AbsURL1 = "https://complexica.herokuapp.com/";
+const AbsURL2 = "https://complexica2.herokuapp.com/";
 const listOfAcceptedExtensions = ["jpg", "png", "jpeg"];
 const getUrlByGMTFn = () => {
     const gmtHour = new Date().toUTCString().split(" ")[4].split(":")[0];
     if (gmtHour >= 7 && gmtHour <= 19) {
-        return URL1;
+        return AbsURL1;
     }
-    return URL2;
+    return AbsURL2;
 }
 const util = {
     capitalizeFirstChar: str => str.charAt(0).toUpperCase() + str.substring(1),
@@ -23,7 +23,7 @@ const util = {
     },
     getUrlByGMT: getUrlByGMTFn(),
     awakeAPIGatewayAndBackEndHeroku() {
-        const url = getUrlByGMTFn();
+        const url = getUrlByGMTFn() + "healthcheck";
         axios({
             method: "get",
             url: url,

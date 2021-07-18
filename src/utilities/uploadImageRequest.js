@@ -8,7 +8,7 @@ const uploadImageRequest = (img, updateImage, stopProgressSim) => {
 
     var config = {
         method: 'post',
-        url: Util.getUrlByGMT(),
+        url: Util.getUrlByGMT + "complexica/upload_image",
         data: data
     };
 
