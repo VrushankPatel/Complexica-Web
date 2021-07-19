@@ -7,6 +7,9 @@ import "../App.css";
 class CUploadPicture extends Component {
   state = { iconColor: "lightGrey", showProgressBar: false, showProgressMessage: false, btnDsbl: false, downloadDisable: true };
 
+  componentDidMount() {
+    localStorage.clear();
+  }
   render() {
     const showToast = this.props.showToast;
     const showDurationToast = this.props.showDurationToast;
