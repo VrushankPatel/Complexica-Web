@@ -3,22 +3,21 @@ import CUploadPicture from "./UploadPicture";
 import animGif from "../assets/gifs/colorized.gif";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import Toast from "react-bootstrap/Toast";
-
+import Util from "../utilities/Util"
 class Body extends Component {
   state = { showToast: false, showDurationToast: false, serverTime: 0, clientTime: 0 }
   render() {
-    const downloadBase64File = (contentType, base64Data, fileName) => {
-      const linkSource = `data:${contentType};base64,${base64Data}`;
-      const downloadLink = document.createElement("a");
-      downloadLink.href = linkSource;
-      downloadLink.download = fileName;
-      downloadLink.click();
-    }
     const updateImage = (encodedBase64) => {
       let fileName = localStorage.getItem("complFileName");
       fileName = fileName ? fileName : "compconv.png";
-      downloadBase64File('png', encodedBase64, fileName);
       this.imageElement.src = `data:image/png;base64, ${encodedBase64}`;
+      localStorage.setItem("downloadMetaData", JSON.stringify({ contentType: 'png', data: encodedBase64, fileName: fileName }));
+
+    }
+    const downloadImage = (metaData) => {
+      metaData = JSON.parse(metaData);
+      const { contentType, data, fileName } = metaData;
+      Util.downloadBase64File(contentType, data, fileName);
     }
     const showFormatError = () => this.setState({ showToast: true });
     const hideFormatError = () => this.setState({ showToast: false });
@@ -116,7 +115,7 @@ class Body extends Component {
               alignItems: "center",
             }}
           >
-            <CUploadPicture showToast={showFormatError} showDurationToast={showDuration} updateImage={updateImage} />
+            <CUploadPicture showToast={showFormatError} showDurationToast={showDuration} updateImage={updateImage} downloadImage={downloadImage} />
           </Col>
         </Row>
       </Container >

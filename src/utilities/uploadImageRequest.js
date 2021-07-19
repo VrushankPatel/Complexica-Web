@@ -1,7 +1,7 @@
 import Util from "../utilities/Util"
 var axios = require('axios');
 
-const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDurationToast) => {
+const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDurationToast, enableDownload) => {
     var FormData = require('form-data');
     var data = new FormData();
     const beginTime = startTime;
@@ -12,7 +12,6 @@ const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDu
         url: Util.getUrlByGMT + "complexica/upload_image",
         data: data
     };
-
     axios(config)
         .then(function (response) {
             updateImage(response.data.image);
@@ -21,6 +20,7 @@ const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDu
             if (response.data.timeTaken > -1) {
                 showDurationToast(response.data.timeTaken, timeTaken);
             }
+            enableDownload();
         })
         .catch(function (error) {
             alert("Unable to convert image, please try again later..");
