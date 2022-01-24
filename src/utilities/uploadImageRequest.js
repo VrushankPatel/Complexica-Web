@@ -11,7 +11,7 @@ const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDu
         method: 'post',
         url: Util.getUrlByGMT + "api/upload_image",
         data: data
-    };
+    };    
     axios(config)
         .then(function (response) {
             updateImage(response.data.image);
@@ -22,7 +22,7 @@ const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDu
             }
             enableDownload();
         })
-        .catch(function (error) {
+        .catch(function (error) {            
             alert("Unable to convert image, please try again later..");
             stopProgressSim();
         });
