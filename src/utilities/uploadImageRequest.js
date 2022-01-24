@@ -9,7 +9,7 @@ const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDu
 
     var config = {
         method: 'post',
-        url: Util.getUrlByGMT + "complexica/upload_image",
+        url: Util.getUrlByGMT + "api/upload_image",
         data: data
     };
     axios(config)

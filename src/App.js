@@ -1,6 +1,6 @@
-import WelcomeView from "./views/WelcomeView";
-import AboutView from "./views/AboutView";
-import Api from "./views/ApiView";
+import WelcomeView from "./views/welcomeView";
+import AboutView from "./views/aboutView";
+import ApiView from "./views/apiView";
 import CFooter from "./components/CFooter";
 
 import {
@@ -29,7 +29,7 @@ function App() {
           <AboutView />
         </Route>
         <Route path="/api" >
-          <Api />
+          <ApiView />
         </Route>
         <CFooter />
       </div>

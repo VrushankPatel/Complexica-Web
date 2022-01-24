@@ -1,7 +1,7 @@
 import { Component } from "react";
 import ApiBody from "../components/ApiBody";
 
-class Api extends Component {
+class ApiView extends Component {
   state = {};
   componentDidMount() {
     document.title = "Colorizer : API & Tools";
@@ -15,4 +15,4 @@ class Api extends Component {
   }
 }
 
-export default Api;
+export default ApiView;
