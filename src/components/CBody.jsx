@@ -4,7 +4,7 @@ import animGif from "../assets/gifs/colorized.gif";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import Toast from "react-bootstrap/Toast";
 import Util from "../utilities/Util"
-class Body extends Component {
+class CBody extends Component {
   state = { showToast: false, showDurationToast: false, serverTime: 0, clientTime: 0 }
   render() {
     const updateImage = (encodedBase64) => {
@@ -123,4 +123,4 @@ class Body extends Component {
   }
 }
 
-export default Body;
+export default CBody;

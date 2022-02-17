@@ -7,7 +7,7 @@ import {
   BrowserRouter as Router,
   Route
 } from "react-router-dom";
-import CNavBar from "./components/NavBarX";
+import CNavBar from "./components/CNavBar";
 import {
   React,
   useEffect

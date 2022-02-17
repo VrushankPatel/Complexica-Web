@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-class Body extends Component {
+class About extends Component {
   render() {
     const txtStyle = {
       fontSize: "xxx-large",
@@ -64,4 +64,4 @@ class Body extends Component {
   }
 }
 
-export default Body;
+export default About;
