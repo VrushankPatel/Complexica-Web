@@ -2,7 +2,7 @@ import { Component } from "react";
 import ApiAndTools from "./ApiAndTools";
 import { Container, Row, Col } from "react-bootstrap";
 
-class Body extends Component {
+class ApiBody extends Component {
   state = { showToast: false }
   render() {
     return (
@@ -28,4 +28,4 @@ class Body extends Component {
   }
 }
 
-export default Body;
+export default ApiBody;
