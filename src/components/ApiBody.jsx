@@ -1,5 +1,5 @@
 import { Component } from "react";
-import CUploadPicture from "./CUploadPicture";
+import ApiAndTools from "./ApiAndTools";
 import { Container, Row, Col } from "react-bootstrap";
 
 class Body extends Component {
@@ -20,7 +20,7 @@ class Body extends Component {
               alignItems: "center",
             }}
           >
-            <CUploadPicture />
+            <ApiAndTools />
           </Col>
         </Row>
       </Container >

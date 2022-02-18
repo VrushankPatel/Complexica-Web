@@ -1,5 +1,5 @@
 import { Component } from "react";
-import CUploadPicture from "./UploadPicture";
+import CUploadPicture from "./CUploadPicture";
 import animGif from "../assets/gifs/colorized.gif";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import Toast from "react-bootstrap/Toast";

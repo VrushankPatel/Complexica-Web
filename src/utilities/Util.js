@@ -1,8 +1,8 @@
-const AbsURL1 = "https://complexica.herokuapp.com/";
-const AbsURL2 = "https://complexica2.herokuapp.com/";
+// const AbsURL1 = "https://complexica.herokuapp.com/";
+// const AbsURL2 = "https://complexica2.herokuapp.com/";
 
-// const AbsURL1 = "http://localhost:5000/";
-// const AbsURL2 = "http://localhost:5000/";
+const AbsURL1 = "http://localhost:5000/";
+const AbsURL2 = "http://localhost:5000/";
 
 const listOfAcceptedExtensions = ["jpg", "png", "jpeg"];
 const getUrlByGMTFn = () => {
