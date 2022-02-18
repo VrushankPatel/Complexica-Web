@@ -1,4 +1,4 @@
-import Util from "../utilities/Util"
+import Util from "../utilities/Util";
 var axios = require('axios');
 
 const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDurationToast, enableDownload) => {
@@ -11,7 +11,7 @@ const uploadImageRequest = (img, updateImage, stopProgressSim, startTime, showDu
         method: 'post',
         url: Util.getUrlByGMT + "api/upload_image",
         data: data
-    };    
+    };
     axios(config)
         .then(function (response) {
             updateImage(response.data.image);
